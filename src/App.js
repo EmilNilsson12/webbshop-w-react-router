@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from './components/HomePage';
 import ContactPage from './components/ContactPage';
 import ProductsPage from './components/ProductsPage';
+import ProductPage from './components/ProductPage';
 import NotFoundPage from './components/NotFoundPage';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 				<Route path='/' component={HomePage} exact />
 				<Route path='/contact' component={ContactPage} exact />
 				<Route path='/products' component={ProductsPage} exact />
+				<Route path='/products/:id?' component={ProductPage} exact />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</Router>

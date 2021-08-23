@@ -1,9 +1,19 @@
-const ProductPage = ({ prodName, price, imageUrl }) => {
+import Products from '../data/produkter';
+
+const ProductPage = ({ match }) => {
+	const urlId = parseInt(match.params.id, 10);
+	const currentProduct = Products.find((product) => product.id === urlId);
+	console.log(currentProduct);
 	return (
 		<div>
-			<h2>{prodName}</h2>
-			<p>Buy this item for only ${price}!</p>
-			<img src={`./imgs/${imageUrl}`} alt='Shoe in stock' width='150' />
+			<h1>PRODUCT PAGE</h1>
+			<h2>{currentProduct.prodName}</h2>
+			<p>Buy this item for only ${currentProduct.price}!</p>
+			<img
+				src={`/imgs/${currentProduct.image}`}
+				alt='Shoe in stock'
+				width='150'
+			/>
 		</div>
 	);
 };

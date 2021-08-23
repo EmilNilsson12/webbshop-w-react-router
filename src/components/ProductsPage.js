@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import ProductPage from './ProductPage';
+import { Link } from 'react-router-dom';
+
+import ProductPreviewPage from './ProductPreviewPage';
 import productData from '../data/produkter';
 
 const ProductsPage = () => {
@@ -14,12 +16,12 @@ const ProductsPage = () => {
 			<details>
 				<summary onClick={toggleProductsView}>{btnText} products</summary>
 				{productData.map((product) => (
-					<ProductPage
-						key={product.id}
-						prodName={product.prodName}
-						price={product.price}
-						imageUrl={product.image}
-					/>
+					<Link to={`/products/${product.id}`} key={product.id}>
+						<ProductPreviewPage
+							prodName={product.prodName}
+							imageUrl={product.image}
+						/>
+					</Link>
 				))}
 			</details>
 		</>
