@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import './ProductsPage.css';
+
 import ProductPreviewPage from './ProductPreviewPage';
 import productData from '../data/produkter';
 
@@ -15,14 +17,16 @@ const ProductsPage = () => {
 			<h1>Welcome to ProductsPage</h1>
 			<details>
 				<summary onClick={toggleProductsView}>{btnText} products</summary>
-				{productData.map((product) => (
-					<Link to={`/products/${product.id}`} key={product.id}>
-						<ProductPreviewPage
-							prodName={product.prodName}
-							imageUrl={product.image}
-						/>
-					</Link>
-				))}
+				<div className='grid'>
+					{productData.map((product) => (
+						<Link to={`/products/${product.id}`} key={product.id}>
+							<ProductPreviewPage
+								prodName={product.prodName}
+								imageUrl={product.image}
+							/>
+						</Link>
+					))}
+				</div>
 			</details>
 		</>
 	);

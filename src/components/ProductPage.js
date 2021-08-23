@@ -6,7 +6,6 @@ const ProductPage = ({ match }) => {
 	console.log(currentProduct);
 	return (
 		<div>
-			<h1>PRODUCT PAGE</h1>
 			<h2>{currentProduct.prodName}</h2>
 			<p>Buy this item for only ${currentProduct.price}!</p>
 			<img
